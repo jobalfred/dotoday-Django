@@ -1,0 +1,37 @@
+
+{% extends "main.html" %}
+
+
+
+{% block content %}
+<div class="container">
+  <ul class="list-group">
+  <li class="list-group-item">
+    <form method="post">
+      <div class="input-group">
+        <form method="post">
+          {% csrf_token %}
+          {{form}}
+
+                <!-- <input type="text" name="taskText" class="form-control" placeholder="Add Task"> -->
+                <div class="input-group-append">
+                    <button class="btn btn-success" type="submit" role="button">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+        </form>
+            </div>
+    </form>
+
+  </li>
+  </ul>
+  <ul class="list-group">
+    {% for task in tasks %}
+  <li class="list-group-item">
+    <button type="button" class="btn btn-primary btn-sm">Edit</button>
+  <button type="button" class="btn btn-danger btn-sm">Delete</button> {{task.taskName}}
+</li>
+  {% endfor %}
+</ul>
+</div>
+{% endblock content %}
