@@ -11,8 +11,7 @@
       <div class="input-group">
         <form method="post">
           {% csrf_token %}
-          {{form}}
-
+          {{form.taskName}}
                 <!-- <input type="text" name="taskText" class="form-control" placeholder="Add Task"> -->
                 <div class="input-group-append">
                     <button class="btn btn-success" type="submit" role="button">
@@ -29,8 +28,11 @@
     {% for task in tasks %}
   <li class="list-group-item">
     <!-- <button type="button" class="btn btn-primary btn-sm">Edit</button> -->
+    <p>{{task.taskName|title}} <small>cretaed on <b>{{task.taskTime}}</b></small> </p>
     <a href="{% url 'update_Task' task.id %}" class="btn btn-primary btn-sm" role="button">Edit</a>
-  <button type="button" class="btn btn-danger btn-sm">Delete</button> {{task.taskName}}
+    <a href="{% url 'delete_Task' task.id %}" class="btn btn-danger btn-sm" role="button">Delete</a>
+
+
 </li>
   {% endfor %}
 </ul>

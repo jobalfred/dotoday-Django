@@ -6,10 +6,11 @@
   <div class="container">
       <form  method="post">
         {% csrf_token %}
-        <label>Modify your Task </label>
-        {{form.taskName}}
-        <button type="submit" class="btn btn-success" name="button">Save</button>
+        <label>Are you sure you want to delete <em> {{task.taskName}}</em> </label>
+        <button type="submit" class="btn btn-danger" name="button">Delete</button>
         <a href="/" class="btn btn-primary" role='button'>Cancel</a>
+
+
 
       </form>
   </div>
