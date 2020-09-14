@@ -14,3 +14,14 @@ def home(request):
         return redirect('/')
     context = {'tasks':tasks,'form':form}
     return render(request,'home.html', context)
+
+def updateTask(request, pk):
+    task = TaskToDo.objects.get(id=pk)
+    form = ToDoFroms(instance=task)
+    if request.method == 'POST':
+        form = ToDoFroms(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    context = {'form':form}
+    return render(request,'update.html', context)

@@ -28,7 +28,8 @@
   <ul class="list-group">
     {% for task in tasks %}
   <li class="list-group-item">
-    <button type="button" class="btn btn-primary btn-sm">Edit</button>
+    <!-- <button type="button" class="btn btn-primary btn-sm">Edit</button> -->
+    <a href="{% url 'update_Task' task.id %}" class="btn btn-primary btn-sm" role="button">Edit</a>
   <button type="button" class="btn btn-danger btn-sm">Delete</button> {{task.taskName}}
 </li>
   {% endfor %}
